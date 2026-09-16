@@ -1,0 +1,21 @@
+@if (documentResource.isLoading()) {
+  <p class="status">Загрузка…</p>
+} @else if (documentResource.error()) {
+  <p class="status status-error">Не удалось загрузить документ</p>
+} @else if (document(); as document) {
+  <main class="viewer">
+    <app-workspace-toolbar [name]="document.name" (save)="save()" />
+
+    <section class="document">
+      @if (document.pages.length === 0) {
+        <p class="status">Нет страниц</p>
+      } @else {
+        @for (page of document.pages; track page.number) {
+          <app-document-page [page]="page" />
+        }
+      }
+    </section>
+  </main>
+} @else {
+  <p class="status">Документ не найден</p>
+}

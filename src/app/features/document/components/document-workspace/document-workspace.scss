@@ -1,0 +1,22 @@
+.viewer {
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+.document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.status {
+  margin: 48px auto;
+  text-align: center;
+  color: #4b5563;
+}
+
+.status-error {
+  color: #b91c1c;
+}

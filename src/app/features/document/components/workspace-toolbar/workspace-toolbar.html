@@ -1,0 +1,11 @@
+<header class="toolbar">
+  <div class="title">{{ name() }}</div>
+
+  <button type="button" aria-label="Zoom out" (click)="zoomService.zoomOut()">-</button>
+  <span>{{ zoomService.label() }}</span>
+  <button type="button" aria-label="Zoom in" (click)="zoomService.zoomIn()">+</button>
+
+  <app-text-annotation-tool />
+
+  <button type="button" (click)="save.emit()">Save</button>
+</header>

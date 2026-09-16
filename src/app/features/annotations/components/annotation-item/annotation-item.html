@@ -1,0 +1,27 @@
+@let current = annotation();
+
+<div
+  class="annotation"
+  appDrag
+  [dragBoundary]="boundary()"
+  [dragData]="current"
+  [style.left.%]="current.x"
+  [style.top.%]="current.y"
+  (dragMoved)="onMoved($event)"
+>
+  @switch (current.type) {
+    @case ('text') {
+      <span>{{ current.text }}</span>
+    }
+  }
+
+  <button
+    type="button"
+    class="delete"
+    aria-label="Delete annotation"
+    (pointerdown)="$event.stopPropagation()"
+    (click)="onDelete($event)"
+  >
+    ×
+  </button>
+</div>
